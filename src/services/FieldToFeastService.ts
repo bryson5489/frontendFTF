@@ -1,5 +1,10 @@
 import axios from "axios";
+
+import Farm from "../model/Farm";
+
+
 import Farm from "../Model/Farm";
+
 const baseURL = "full url";
 const key: string = process.env.REACT_APP_FARM_KEY || "";
 
