@@ -1,18 +1,13 @@
 import axios from "axios";
 
-import Farm from "../model/Farm";
-
-
-import Farm from "../Model/Farm";
-
 const baseURL = "full url";
 const key: string = process.env.REACT_APP_FARM_KEY || "";
 
-const getAllFarms = async (): Promise<Farm[]> => {
+export const getAllFarms = async (): Promise<null> => {
   return (await axios.get(baseURL)).data;
 };
 
-export const getFarmById = async (id: string): Promise<Farm> => {
+export const getFarmById = async (id: string): Promise<null> => {
   return (
     await axios.get(baseURL + "/" + encodeURIComponent(id), {
       params: { api_key: key },
