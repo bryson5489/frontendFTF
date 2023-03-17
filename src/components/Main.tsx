@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Farm from "../model/Farm";
 import { getFarmsByLocation } from "../services/googleService";
+import { postNewFarm } from "../services/mongoService";
 import Farmlist from "./Farmlist";
 import "./Main.css";
+import Post from "./Post";
 
 const Main = () => {
   const [farms, setFarms] = useState<Farm[]>([]);
@@ -11,6 +13,7 @@ const Main = () => {
     console.log(farms);
     setFarms(farms);
   };
+
   useEffect(() => {
     (async () => {
       loadAllFarms();
