@@ -1,0 +1,14 @@
+.Header ul {
+    list-style: none;
+    display: flex;
+
+}
+
+.Header li {
+    margin: 10px;
+}
+
+.Header a {
+    text-decoration: none;
+    color: black;
+}

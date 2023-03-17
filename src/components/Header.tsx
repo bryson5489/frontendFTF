@@ -4,7 +4,11 @@ import "./Header.css";
 const Header = () => {
   return (
     <div className="Header">
-      <h1>Field To Feast</h1>
+      <Link to={"/"}>
+        {" "}
+        <h1>Field To Feast</h1>
+      </Link>
+
       <ul>
         <Link to="/map">
           <li>Map</li>
