@@ -1,25 +1,65 @@
 import { FormEvent, useState } from "react";
-import "./Post.css";
+import Farm from "../model/Farm";
+import "./Form.css";
 
-const Post = () => {
-  const [post, setPost] = useState("");
-  const submitHandler = (e: FormEvent): void => {
+interface Prop {
+  newFarmProp: (newFarm: Farm) => void;
+}
+
+const Post = ({ newFarmProp }: Prop) => {
+  const [myfarms, setMyFarms] = useState<Farm[]>([]);
+  const [name, setName] = useState("");
+  const [formatted_address, setFormattedAddress] = useState("");
+  const [rating, setRating] = useState("");
+  const newFarmHandler = (e: FormEvent): void => {
     e.preventDefault();
+    newFarmProp({
+      name,
+      formatted_address,
+      rating: parseInt(rating),
+    });
+    setName("");
+    setFormattedAddress("");
+    setRating("");
   };
   return (
     <form
-      className="Post"
+      className="Form"
       onSubmit={(e) => {
-        submitHandler(e);
+        newFarmHandler(e);
       }}
     >
-      <label htmlFor=""></label>
-      <input type="text" />
-      <label htmlFor=""></label>
-      <input type="text" />
-      <label htmlFor=""></label>
-      <input type="text" />
-      <button>Make new Farm</button>
+      <label htmlFor="name">Name of Farm</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        value={name}
+        onChange={(e) => {
+          setName(e.target.value);
+        }}
+      />
+      <label htmlFor="address">Address</label>
+      <input
+        type="text"
+        name="address"
+        id="address"
+        value={formatted_address}
+        onChange={(e) => {
+          setFormattedAddress(e.target.value);
+        }}
+      />
+      <label htmlFor="rating">Rating</label>
+      <input
+        type="number"
+        name="rating"
+        id="rating"
+        value={rating}
+        onChange={(e) => {
+          setRating(e.target.value);
+        }}
+      />
+      <button>Post new Farm</button>
     </form>
   );
 };
