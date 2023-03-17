@@ -1,14 +1,27 @@
-.Header ul {
-    list-style: none;
-    display: flex;
+.Header {
+  background-color: #d8edda;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 30px;
+}
 
+.Header ul {
+  display: flex;
+  list-style: none;
+}
+
+.Header a:hover {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .Header li {
-    margin: 10px;
+  font-size: 1.1em;
+  padding: 10px;
 }
 
 .Header a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
