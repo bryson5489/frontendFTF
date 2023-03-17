@@ -13,9 +13,10 @@ const Header = () => {
         <Link to="/map">
           <li>Map</li>
         </Link>
-        <Link to="/post">
-          <li>Post</li>
+        <Link to="/farms">
+          <li>Farms</li>
         </Link>
+
         <Link to="/login">
           <li>Login</li>
         </Link>
