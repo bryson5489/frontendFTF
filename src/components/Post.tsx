@@ -1,13 +1,11 @@
 import { FormEvent, useState } from "react";
 import Farm from "../model/Farm";
-import "./Form.css";
 
 interface Prop {
   newFarmProp: (newFarm: Farm) => void;
 }
 
 const Post = ({ newFarmProp }: Prop) => {
-  const [myfarms, setMyFarms] = useState<Farm[]>([]);
   const [name, setName] = useState("");
   const [formatted_address, setFormattedAddress] = useState("");
   const [rating, setRating] = useState("");

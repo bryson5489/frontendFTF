@@ -1,11 +1,11 @@
 import Farm from "../model/Farm";
-import "./myFarmsList.css";
+import "./MyFarmsList.css";
 
 interface Prop {
   farmProp: Farm;
 }
 
-const myFarmsList = ({ farmProp }: Prop) => {
+const MyFarmsList = ({ farmProp }: Prop) => {
   return (
     <li className="myFarmsList">
       <p>Name: {farmProp.name}</p>
@@ -15,4 +15,4 @@ const myFarmsList = ({ farmProp }: Prop) => {
   );
 };
 
-export default myFarmsList;
+export default MyFarmsList;
