@@ -1,13 +1,28 @@
 import { useEffect, useState } from "react";
-import { getAllFarms } from "../services/FieldToFeastService";
+import Farm from "../model/Farm";
+import { getFarmsByLocation } from "../services/googleService";
+import Farmlist from "./Farmlist";
 import "./Main.css";
 
 const Main = () => {
-  const [farms, setFarms] = useState<[]>([]);
+  const [farms, setFarms] = useState<Farm[]>([]);
+  const loadAllFarms = async () => {
+    const farms: Farm[] = (await getFarmsByLocation("novi michigan")).results;
+    console.log(farms);
+    setFarms(farms);
+  };
   useEffect(() => {
-    (async () => {})();
+    (async () => {
+      loadAllFarms();
+    })();
   }, []);
-  return <div className="Main"></div>;
+  return (
+    <div className="Main">
+      {farms.map((farm) => (
+        <Farmlist farmsProp={farm} key={farm.place_id} />
+      ))}
+    </div>
+  );
 };
 
 export default Main;
