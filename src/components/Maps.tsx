@@ -1,5 +1,6 @@
 import "./Maps.css";
 import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
+import MapForm from "./MapForm";
 
 const containerStyle = {
   width: "100%",
@@ -23,13 +24,16 @@ const Maps = () => {
   };
 
   return (
-    <LoadScript googleMapsApiKey={key}>
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-        {/* Child components, such as markers, info windows, etc. */}
-        <MarkerF position={position1} />
-        <MarkerF position={position2} />
-      </GoogleMap>
-    </LoadScript>
+    <>
+      <MapForm />
+      <LoadScript googleMapsApiKey={key}>
+        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+          {/* Child components, such as markers, info windows, etc. */}
+          <MarkerF position={position1} />
+          <MarkerF position={position2} />
+        </GoogleMap>
+      </LoadScript>
+    </>
   );
 };
 

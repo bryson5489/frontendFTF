@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
-import Farm from "../model/Farm";
+import { useSearchParams } from "react-router-dom";
+import Farm from "../models/Farm";
 import { getFarmsByLocation } from "../services/googleService";
 // import { postNewFarm } from "../services/mongoService";
-import Farmlist from "./Farmlist";
+import FarmList from "./FarmList";
 import "./Main.css";
 // import Post from "./Post";
 
 const Main = () => {
   const [farms, setFarms] = useState<Farm[]>([]);
+  let [searchParams, setSearchParams] = useSearchParams();
+  let searchTerm = searchParams.get("search-term");
+  if (!searchTerm) {
+    searchTerm = "novi michigan";
+  }
   const loadAllFarms = async () => {
-    const farms: Farm[] = (await getFarmsByLocation("novi michigan")).results;
+    const farms: Farm[] = (await getFarmsByLocation(searchTerm!)).results;
     console.log(farms);
     setFarms(farms);
   };
@@ -19,10 +25,11 @@ const Main = () => {
       loadAllFarms();
     })();
   }, []);
+
   return (
     <div className="Main">
       {farms.map((farm) => (
-        <Farmlist farmsProp={farm} key={farm.place_id} />
+        <FarmList farmsProp={farm} key={farm.place_id} />
       ))}
     </div>
   );

@@ -1,4 +1,4 @@
-import Farm from "../model/Farm";
+import Farm from "../models/Farm";
 import "./MyFarmsList.css";
 
 interface Prop {

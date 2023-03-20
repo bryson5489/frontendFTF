@@ -1,5 +1,5 @@
 import axios from "axios";
-import Farm from "../model/Farm";
+import Farm from "../models/Farm";
 
 const baseURL: string = process.env.REACT_APP_API_URL || "";
 
