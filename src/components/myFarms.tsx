@@ -30,10 +30,10 @@ const MyFarms = () => {
   return (
     <div className="MyFarms">
       <Post newFarmProp={newFarmHandler} />
-      {myFarms.map((farms, index) => (
+      {myFarms.map((farm, index) => (
         <MyFarmsList
-          farmProp={farms}
-          key={`${farms.place_id} + ${index}`}
+          farmProp={farm}
+          key={`${farm.place_id} + ${index}`}
           deleteFarmProp={deleteFarmHandler}
         />
       ))}
