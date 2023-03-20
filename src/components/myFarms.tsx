@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Farm from "../model/Farm";
 import { getFarmsByLocation } from "../services/googleService";
-import { postNewFarm } from "../services/mongoService";
+import { postNewFarm, deleteFarm } from "../services/mongoService";
 import "./MyFarms.css";
 import MyFarmsList from "./MyFarmsList";
 
@@ -19,15 +19,23 @@ const MyFarms = () => {
       loadAllFarms();
     })();
   }, []);
-  const newFarmHandler = (newFarm: Farm): void => {
-    postNewFarm(newFarm);
+  const newFarmHandler = async (newFarm: Farm): Promise<void> => {
+    await postNewFarm(newFarm, "12345");
+    loadAllFarms();
+  };
+  const deleteFarmHandler = (id: string) => {
+    deleteFarm(id);
     loadAllFarms();
   };
   return (
-    <div className="myFarms">
+    <div className="MyFarms">
       <Post newFarmProp={newFarmHandler} />
       {myFarms.map((farms, index) => (
-        <MyFarmsList farmProp={farms} key={`${farms.place_id} + ${index}`} />
+        <MyFarmsList
+          farmProp={farms}
+          key={`${farms.place_id} + ${index}`}
+          deleteFarmProp={deleteFarmHandler}
+        />
       ))}
     </div>
   );

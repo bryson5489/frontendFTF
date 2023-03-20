@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Farm from "../model/Farm";
 import { getFarmsByLocation } from "../services/googleService";
-import { postNewFarm } from "../services/mongoService";
+// import { postNewFarm } from "../services/mongoService";
 import Farmlist from "./Farmlist";
 import "./Main.css";
-import Post from "./Post";
+// import Post from "./Post";
 
 const Main = () => {
   const [farms, setFarms] = useState<Farm[]>([]);
