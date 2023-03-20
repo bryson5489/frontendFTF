@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import Farm from "../model/Farm";
+import Farm from "../models/Farm";
 
 interface Prop {
   newFarmProp: (newFarm: Farm) => void;
