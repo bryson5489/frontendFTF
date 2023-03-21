@@ -1,5 +1,5 @@
 import Farm from "../models/Farm";
-import "./Farmlist.css";
+import "./FarmList.css";
 interface Prop {
   farmsProp: Farm;
 }

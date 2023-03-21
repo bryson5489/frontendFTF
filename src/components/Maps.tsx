@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Farm from "../models/Farm";
 import { getFarmsByLocation } from "../services/googleService";
-import FarmList from "./Farmlist";
+import FarmList from "./FarmList";
 
 const containerStyle = {
   width: "100%",
