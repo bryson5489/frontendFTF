@@ -10,7 +10,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Maps from "./components/Maps";
 import LoginPage from "./components/LoginPage";
-import MyFarms from "./components/MyFarms";
+import MyFarms from "./components/MyFarm";
 
 const App = () => {
   return (

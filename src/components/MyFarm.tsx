@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Farm from "../models/Farm";
 import { getFarmsByLocation } from "../services/googleService";
 import { postNewFarm, deleteFarm } from "../services/mongoService";
+import MyFarmsList from "./MyFarmList";
 import "./MyFarms.css";
-import MyFarmsList from "./MyFarmsList";
 
 import Post from "./Post";
 
