@@ -9,7 +9,7 @@ const MapForm = () => {
   const handleSubmit = (e: FormEvent): void => {
     e.preventDefault();
     // http://localhost:3000/?search-term=lentils
-    navigate(`/?${new URLSearchParams({ "search-term": searchTerm })}`);
+    navigate(`/map?${new URLSearchParams({ "search-term": searchTerm })}`);
     setSearchTerm("");
   };
 
