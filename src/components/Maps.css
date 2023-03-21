@@ -1,0 +1,24 @@
+.mapForm {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid grey;
+}
+
+@media only screen and (min-width: 800px) {
+    .mapContainer {
+        display: flex;
+        margin: 20px;
+    }
+
+
+    .farmArray {
+        display: flex;
+        flex-direction: column;
+
+    }
+}

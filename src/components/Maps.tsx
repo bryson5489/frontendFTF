@@ -9,7 +9,7 @@ import FarmList from "./Farmlist";
 
 const containerStyle = {
   width: "100%",
-  height: "400px",
+  height: "700px",
 };
 
 // this is the center that we will being using for the searchterm!
@@ -196,22 +196,28 @@ const Maps = () => {
 
   return (
     <>
-      <MapForm />
-      <LoadScript googleMapsApiKey={key}>
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={farmArray[0].geometry.location || center}
-          zoom={10}
-        >
-          {/* Child components, such as markers, info windows, etc. */}
+      <div className="mapForm">
+        <MapForm />
+      </div>
+      <div className="mapContainer">
+        <LoadScript googleMapsApiKey={key}>
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={farmArray[0].geometry.location || center}
+            zoom={10}
+          >
+            {/* Child components, such as markers, info windows, etc. */}
+            {farmArray.map((farm: any) => (
+              <MarkerF position={farm.geometry.location} />
+            ))}
+          </GoogleMap>
+        </LoadScript>
+        <div className="farmArray">
           {farmArray.map((farm: any) => (
-            <MarkerF position={farm.geometry.location} />
+            <FarmList farmsProp={farm} key={farm.place_id} />
           ))}
-        </GoogleMap>
-      </LoadScript>
-      {farmArray.map((farm: any) => (
-        <FarmList farmsProp={farm} key={farm.place_id} />
-      ))}
+        </div>
+      </div>
     </>
   );
 };

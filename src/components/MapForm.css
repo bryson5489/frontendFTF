@@ -1,0 +1,21 @@
+.MapForm {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.MapForm #searchTerm {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.MapForm button {
+    padding: 8px 100px 8px 100px;
+    border-radius: 25px;
+    background-color: #d8edda;
+    font-size: larger;
+    font-weight: bolder;
+    margin-top: 10px;
+}
