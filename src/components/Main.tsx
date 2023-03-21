@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Farm from "../models/Farm";
 import { getFarmsByLocation } from "../services/googleService";
+import FarmList from "./Farmlist";
 // import { postNewFarm } from "../services/mongoService";
-import FarmList from "./FarmList";
+
 import "./Main.css";
 // import Post from "./Post";
 
