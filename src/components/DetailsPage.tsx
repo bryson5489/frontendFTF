@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Farm from "../models/Farm";
+import { getFarmById } from "../services/googleService";
 import "./DetailsPage.css";
 
 const DetailsPage = () => {
@@ -14,7 +15,13 @@ const DetailsPage = () => {
     })();
   }, []);
 
-  return <div className="DetailsPage"></div>;
+  return (
+    <div className="DetailsPage">
+      <p>{farm?.name}</p>
+      <p>{farm?.formatted_address}</p>
+      <p>{farm?.rating}</p>
+    </div>
+  );
 };
 
 export default DetailsPage;

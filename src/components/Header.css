@@ -1,6 +1,5 @@
 .Header {
-  /* background-color: #d8edda; */
-  background: linear-gradient(to left, rgb(250, 245, 245), #91ea9e);
+  background-color: #d8edda;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,9 +11,15 @@
   list-style: none;
 }
 
+.Header h1 {
+  font-size: larger;
+}
+
 .Header a:hover {
-  text-decoration: underline;
-  font-weight: bold;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 102%;
+
 }
 
 .Header li {

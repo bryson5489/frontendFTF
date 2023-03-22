@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Farm from "../models/Farm";
 import "./FarmList.css";
 interface Prop {
@@ -7,11 +8,13 @@ interface Prop {
 const FarmList = ({ farmsProp }: Prop) => {
   return (
     <ul className="FarmList">
-      <li>
-        <p>Farm Name: {farmsProp.name}</p>
-        <p>Address: {farmsProp.formatted_address}</p>
-        <p>Rating: {farmsProp.rating}</p>
-      </li>
+      <Link to="/detailsPage">
+        <li>
+          <p>Farm Name: {farmsProp.name}</p>
+          <p>Address: {farmsProp.formatted_address}</p>
+          <p>Rating: {farmsProp.rating}</p>
+        </li>
+      </Link>
     </ul>
   );
 };
