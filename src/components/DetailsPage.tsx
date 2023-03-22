@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Farm from "../models/Farm";
+import SingleFarm from "../models/SingleFarm";
 import { getFarmById } from "../services/googleService";
 import "./DetailsPage.css";
 
 const DetailsPage = () => {
   const [farm, setFarm] = useState<Farm | null>(null);
-  const id = useParams().id;
+  const id = useParams().place_id;
 
   useEffect(() => {
-    (async () => {
-      const farm: Farm = await getFarmById(id!);
-      setFarm(farm);
-    })();
+    if (id) {
+      (async () => {
+        const farmFromParams: Farm = (await getFarmById(id)).result;
+        setFarm(farmFromParams);
+        console.log((await getFarmById(id)).result);
+      })();
+    }
   }, []);
 
   return (
     <div className="DetailsPage">
-      <p>{farm?.name}</p>
-      <p>{farm?.formatted_address}</p>
-      <p>{farm?.rating}</p>
+      <h2>Name: {farm?.name}</h2>
+      <h3>Address: {farm?.formatted_address}</h3>
+      <h4>Rating: {farm?.rating}</h4>
     </div>
   );
 };
