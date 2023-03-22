@@ -19,3 +19,7 @@
     font-weight: bolder;
     margin-top: 10px;
 }
+
+.MapForm button:hover {
+    cursor: pointer;
+}
