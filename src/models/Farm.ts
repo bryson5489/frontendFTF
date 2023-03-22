@@ -1,7 +1,4 @@
-interface Location {
-  lat: number;
-  lng: number;
-}
+import Location from "./Location";
 
 interface Geometry {
   location: Location;
