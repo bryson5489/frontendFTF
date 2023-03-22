@@ -12,6 +12,7 @@ import Farm from "../models/Farm";
 import { getFarmsByLocation } from "../services/googleService";
 import FarmList from "./FarmList";
 import Location from "../models/Location";
+import DetailsPage from "./DetailsPage";
 
 const containerStyle = {
   width: "100%",
@@ -255,7 +256,9 @@ const Maps = () => {
         </LoadScript>
         <div className="farmArray">
           {farmArray.map((farm: any) => (
-            <FarmList farmsProp={farm} key={farm.place_id} />
+            <Link to={`/detailsPage/${farm.place_id}`}>
+              <FarmList farmsProp={farm} key={farm.place_id} />
+            </Link>
           ))}
         </div>
       </div>
