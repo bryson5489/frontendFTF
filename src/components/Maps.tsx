@@ -1,11 +1,17 @@
 import "./Maps.css";
-import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  InfoWindowF,
+  LoadScript,
+  MarkerF,
+} from "@react-google-maps/api";
 import MapForm from "./MapForm";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Farm from "../models/Farm";
 import { getFarmsByLocation } from "../services/googleService";
 import FarmList from "./FarmList";
+import Location from "../models/Location";
 
 const containerStyle = {
   width: "100%",
@@ -17,6 +23,8 @@ const containerStyle = {
 const Maps = () => {
   const navigate = useNavigate();
   const key = process.env.REACT_APP_FARM_KEY || "";
+  const [selectedCenter, setSelectedCenter] = useState<Location | null>(null);
+  const [index, setIndex] = useState<null | number>(null);
   const [farmArray, setFarmArray] = useState<Farm[] | any>([
     {
       geometry: {
@@ -182,6 +190,10 @@ const Maps = () => {
 
   const [searchParams] = useSearchParams();
   let searchTerm: string = searchParams.get("search-term") || "";
+  const test = (farm: any, index: number) => {
+    setSelectedCenter(farm.geometry.location);
+    setIndex(index);
+  };
 
   useEffect(() => {
     (async () => {
@@ -190,7 +202,7 @@ const Maps = () => {
     })();
   }, [searchTerm]);
 
-  let center = {
+  let center: Location = {
     lat: 42.48059,
     lng: -83.47549,
   };
@@ -208,13 +220,37 @@ const Maps = () => {
             zoom={10}
           >
             {/* Child components, such as markers, info windows, etc. */}
-            {farmArray.map((farm: any) => (
+
+            {farmArray.map((farm: any, index: number) => (
               <MarkerF
                 position={farm.geometry.location}
-                key={key}
-                onClick={() => navigate(`/detailsPage/${farm.place_id}`)}
+                key={farm.place_id}
+                onClick={(e) => test(farm, index)}
               />
             ))}
+            {index && selectedCenter && (
+              <InfoWindowF
+                onCloseClick={() => {
+                  setSelectedCenter(null);
+                }}
+                position={{
+                  lat: selectedCenter.lat,
+                  lng: selectedCenter.lng,
+                }}
+              >
+                <div>
+                  <p>
+                    <span>Name:</span> {farmArray[index].name}
+                  </p>
+                  <p>
+                    <span>Address:</span> {farmArray[index].formatted_address}
+                  </p>
+                  <p>
+                    <span>Rating:</span> {farmArray[index].rating}
+                  </p>
+                </div>
+              </InfoWindowF>
+            )}
           </GoogleMap>
         </LoadScript>
         <div className="farmArray">
