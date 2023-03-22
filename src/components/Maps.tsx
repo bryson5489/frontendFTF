@@ -2,7 +2,7 @@ import "./Maps.css";
 import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
 import MapForm from "./MapForm";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Farm from "../models/Farm";
 import { getFarmsByLocation } from "../services/googleService";
 import FarmList from "./FarmList";
@@ -15,6 +15,7 @@ const containerStyle = {
 // this is the center that we will being using for the searchterm!
 
 const Maps = () => {
+  const navigate = useNavigate();
   const key = process.env.REACT_APP_FARM_KEY || "";
   const [farmArray, setFarmArray] = useState<Farm[] | any>([
     {
@@ -208,7 +209,11 @@ const Maps = () => {
           >
             {/* Child components, such as markers, info windows, etc. */}
             {farmArray.map((farm: any) => (
-              <MarkerF position={farm.geometry.location} />
+              <MarkerF
+                position={farm.geometry.location}
+                key={key}
+                onClick={() => navigate(`/detailsPage/${farm.place_id}`)}
+              />
             ))}
           </GoogleMap>
         </LoadScript>

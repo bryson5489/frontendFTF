@@ -11,8 +11,12 @@ export const getFarmsByLocation = async (
   return (await axios.get(baseURL, { params: { location } })).data;
 };
 
-export const getFarmByid = async (place_id: string): Promise<Farm> => {
-  return await axios.get(baseURL + "/" + encodeURIComponent(place_id), {});
+export const getFarmById = async (place_id: string): Promise<Farm> => {
+  return (
+    await axios.get(baseURL + "/" + encodeURIComponent(place_id), {
+      params: { place_id },
+    })
+  ).data;
 };
 // TODO: create service call for text search, params need to be query and radius, note it is a get request
 

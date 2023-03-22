@@ -15,14 +15,20 @@ const MapForm = () => {
 
   return (
     <form className="MapForm" onSubmit={(e) => handleSubmit(e)}>
-      <label htmlFor="searchTerm">What is your city, state?</label>
-      <input
-        type="text"
-        name="searchTerm"
-        id="searchTerm"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+      <div className="input-container">
+        <input
+          placeholder="Enter Text"
+          className="input-field"
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <label htmlFor="input-field" className="input-label">
+          Enter city, state
+        </label>
+        <span className="input-highlight"></span>
+      </div>
+
       <button>Submit</button>
     </form>
   );
