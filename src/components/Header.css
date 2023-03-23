@@ -12,7 +12,7 @@
 }
 
 .Header h1 {
-  font-size: larger;
+  font-size: x-large;
 }
 
 .Header a:hover {
@@ -24,7 +24,8 @@
 
 .Header li {
   font-size: 1.1em;
-  padding: 10px;
+  padding: 20px;
+
 }
 
 .Header a {
