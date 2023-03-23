@@ -19,12 +19,12 @@ const App = () => {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Main />} />
           <Route path="/map" element={<Maps />} />
+          <Route path="/main" element={<Main />} />
           <Route path="/farms" element={<MyFarms />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/detailsPage/:place_id" element={<DetailsPage />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/map" />} />
         </Routes>
       </Router>
     </div>

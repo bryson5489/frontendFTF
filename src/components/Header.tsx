@@ -11,10 +11,14 @@ const Header = () => {
 
       <ul>
         <Link to="/map">
-          <li>Map</li>
+          <li>Home</li>
         </Link>
+        <Link to="/main">
+          <li>List View</li>
+        </Link>
+
         <Link to="/farms">
-          <li>Farms</li>
+          <li>My Farms</li>
         </Link>
 
         <Link to="/login">
