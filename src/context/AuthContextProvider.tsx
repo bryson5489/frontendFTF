@@ -1,6 +1,6 @@
 import { User } from "firebase/auth";
 import { ReactNode, useEffect, useState } from "react";
-import { auth } from "../firebaseconfig";
+import { auth } from "../firebaseConfig";
 import AuthContext from "./AuthContext";
 
 //TODO:
@@ -20,6 +20,8 @@ const AuthContextProvider = ({ children }: Props) => {
       setUser(newUser);
     });
   }, []);
+
+  console.log(user);
   return (
     <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
   );
