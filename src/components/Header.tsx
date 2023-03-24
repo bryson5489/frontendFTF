@@ -3,7 +3,7 @@ import "./Header.css";
 
 const Header = () => {
   return (
-    <div className="Header">
+    <header className="Header">
       <Link to={"/"}>
         {" "}
         <h1>Field To Feast</h1>
@@ -13,9 +13,9 @@ const Header = () => {
         <Link to="/map">
           <li>Home</li>
         </Link>
-        <Link to="/main">
+        {/* <Link to="/main">
           <li>List View</li>
-        </Link>
+        </Link> */}
 
         <Link to="/farms">
           <li>My Farms</li>
@@ -25,7 +25,7 @@ const Header = () => {
           <li>Login</li>
         </Link>
       </ul>
-    </div>
+    </header>
   );
 };
 
