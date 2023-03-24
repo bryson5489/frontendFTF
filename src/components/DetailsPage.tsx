@@ -54,8 +54,22 @@ const DetailsPage = () => {
         alt={farm?.name}
       ></img>
       <h2>Name: {farm?.name}</h2>
-      <h3>Address: {farm?.formatted_address}</h3>
+      <a
+        target={"_blank"}
+        href={`https://www.google.com/maps/place/${farm?.formatted_address}`}
+      >
+        <h3>Address: {farm?.formatted_address}</h3>
+      </a>
       <h4>Farm Rating: {farm?.rating}/5</h4>
+
+      {farm?.website ? (
+        <a href={farm?.website} target={"_blank"}>
+          <button className="website">Go to our website</button>
+        </a>
+      ) : (
+        <div></div>
+      )}
+
       {farm?.reviews ? (
         <ul>
           <h1>Farm Reviews:</h1>
@@ -70,7 +84,7 @@ const DetailsPage = () => {
                       alt=""
                     />
                     <p>Author: {review.author_name}</p>
-                    <p>Rating: {review.rating}/5</p>
+                    <p>Rating: {review.rating} /5</p>
                     <p>Posted: {review.relative_time_description}</p>
                     <p className="text">"{review.text}"</p>
                   </li>

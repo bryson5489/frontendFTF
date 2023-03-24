@@ -13,6 +13,18 @@
     height: 50px;
 }
 
+.DetailsPage .website {
+    padding: 15px 50px 15px 50px;
+    font-size: larger;
+    border-radius: 20px;
+    background-color: #d8edda;
+}
+
+.DetailsPage .website:hover {
+    font-weight: bolder;
+    cursor: pointer;
+}
+
 .DetailsPage .profile-picture {
     width: 200px;
     height: 200px;

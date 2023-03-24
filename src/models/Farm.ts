@@ -24,4 +24,5 @@ export default interface Farm {
   name: string;
   rating: number;
   reviews?: Review[];
+  website?: string;
 }

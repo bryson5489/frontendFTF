@@ -1,11 +1,14 @@
+import "./Post.css";
 import { FormEvent, useState } from "react";
 import Farm from "../models/Farm";
 
 interface Prop {
   newFarmProp: (newFarm: Farm) => void;
+  newFarmState: (boolean: boolean) => void;
 }
 
-const Post = ({ newFarmProp }: Prop) => {
+const Post = ({ newFarmProp, newFarmState }: Prop) => {
+  const [newFarm, setNewFarm] = useState(false);
   const [name, setName] = useState("");
   const [formatted_address, setFormattedAddress] = useState("");
   const [rating, setRating] = useState("");
@@ -16,13 +19,14 @@ const Post = ({ newFarmProp }: Prop) => {
       formatted_address,
       rating: parseInt(rating),
     });
+    newFarmState(false);
     setName("");
     setFormattedAddress("");
     setRating("");
   };
   return (
     <form
-      className="Form"
+      className="Post"
       onSubmit={(e) => {
         newFarmHandler(e);
       }}
@@ -57,7 +61,19 @@ const Post = ({ newFarmProp }: Prop) => {
           setRating(e.target.value);
         }}
       />
-      <button>Post new Farm</button>
+      <button className="CreateFarm">
+        <i>C</i>
+        <i>r</i>
+        <i>e</i>
+        <i>a</i>
+        <i>t</i>
+        <i>e</i>
+        <i>&nbsp;</i>
+        <i>F</i>
+        <i>a</i>
+        <i>r</i>
+        <i>m</i>
+      </button>
     </form>
   );
 };
