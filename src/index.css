@@ -3,7 +3,8 @@ h1,
 h2,
 h3,
 p,
-div {
+div,
+img {
   margin: 0;
   font-family: "Roboto", sans-serif;
 }
