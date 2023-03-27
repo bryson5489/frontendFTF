@@ -1,0 +1,29 @@
+.ProfileForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 105px;
+}
+
+.ProfileForm label {
+    font-size: larger;
+}
+
+.ProfileForm input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 125px 10px 125px;
+}
+
+.ProfileForm textarea {
+    padding: 50px 100px 50px 100px;
+}
+
+.ProfileForm button {
+    background-color: #d8edda;
+    font-size: larger;
+    padding: 20px 150px 20px 150px;
+    border-radius: 20px;
+    margin-top: 30px;
+}

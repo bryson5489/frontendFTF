@@ -55,7 +55,7 @@ const MyFarmsList = ({ farmProp, deleteFarmProp }: Prop) => {
         </a>{" "}
       </p>
       <p>Farm Rating: {farmProp.rating}/5</p>
-      <p>{farmProp.website}</p>
+
 
       <button onClick={() => deleteFarmProp(farmProp.place_id!)}>Delete</button>
       {/* above this note is a button that need to be linked to a function that find the current li that you are on, collects its ID

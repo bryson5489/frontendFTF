@@ -20,6 +20,14 @@ export const getFarmById = async (place_id: string): Promise<SingleFarm> => {
     })
   ).data;
 };
+export const getGeolocation = async (address: string): Promise<any> => {
+  return (
+    await axios.get(baseURL + "/location", {
+      params: { key, address },
+    })
+  ).data;
+};
+
 // TODO: create service call for text search, params need to be query and radius, note it is a get request
 
 // finish out map form component and you will need a search term text input and a number input for radius and pass those two values to maps.tsx as params (query params or path params, james recommends query) and navigate to maps.tsx
