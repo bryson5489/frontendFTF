@@ -22,11 +22,9 @@ const Header = () => {
           <li>List View</li>
         </Link> */}
         {user && !profile && (
-          <div>
-            <Link to="/login">
-              <li>Make Profile</li>
-            </Link>
-          </div>
+          <Link to="/login">
+            <li>Make Profile</li>
+          </Link>
         )}
 
         {user && profile && (

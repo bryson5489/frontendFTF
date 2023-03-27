@@ -1,117 +1,120 @@
 .MapForm {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 10px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 .MapForm #searchTerm {
-    margin-top: 15px;
-    margin-bottom: 15px;
-
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 /* Input container */
 .input-container {
-    position: relative;
-    margin: 20px;
+  position: relative;
+  margin: 20px;
 }
 
 /* Input field */
 .input-field {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-bottom: 2px solid #ccc;
-    outline: none;
-    background-color: transparent;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
 }
 
 /* Input label */
 .input-label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 16px;
-    color: rgba(204, 204, 204, 0);
-    pointer-events: none;
-    transition: all 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  color: rgba(204, 204, 204, 0);
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
 /* Input highlight */
 .input-highlight {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 0;
-    background-color: #007bff;
-    transition: all 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #007bff;
+  transition: all 0.3s ease;
 }
 
 /* Input field:focus styles */
-.input-field:focus+.input-label {
-    top: -20px;
-    font-size: 12px;
-    color: black;
+.input-field:focus + .input-label {
+  top: -20px;
+  font-size: 12px;
+  color: black;
 }
 
-.input-field:focus+.input-label+.input-highlight {
-    width: 100%;
+.input-field:focus + .input-label + .input-highlight {
+  width: 100%;
 }
-
 
 .MapForm button {
-    /* padding: 8px 100px 8px 100px;
+  /* padding: 8px 100px 8px 100px;
     border-radius: 25px;
     background-color: #d8edda;
     font-size: larger;
     font-weight: bolder;
     margin-top: 10px; */
-
 }
 
 .MapForm button {
-
-    --clr-font-main: hsla(0 0% 20% / 100);
-    --btn-bg-1: hsla(194 100% 69% / 1);
-    --btn-bg-2: hsla(217 100% 56% / 1);
-    --btn-bg-color: hsla(360 100% 100% / 1);
-    --radii: 0.5em;
-    cursor: pointer;
-    padding: 0.9em 1.4em;
-    min-width: 120px;
-    min-height: 44px;
-    font-size: var(--size, 1rem);
-    font-family: "Segoe UI", system-ui, sans-serif;
-    font-weight: 500;
-    transition: 0.8s;
-    background-size: 280% auto;
-    background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
-    border: none;
-    border-radius: var(--radii);
-    color: var(--btn-bg-color);
-    box-shadow: 0px 0px 20px rgba(71, 184, 255, 0.5), 0px 5px 5px -1px rgba(58, 125, 233, 0.25), inset 4px 4px 8px rgba(175, 230, 255, 0.5), inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+  --clr-font-main: hsla(0 0% 20% / 100);
+  --btn-bg-1: hsla(194 100% 69% / 1);
+  --btn-bg-2: hsla(217 100% 56% / 1);
+  --btn-bg-color: hsla(360 100% 100% / 1);
+  --radii: 0.5em;
+  cursor: pointer;
+  padding: 0.9em 1.4em;
+  min-width: 120px;
+  min-height: 44px;
+  font-size: var(--size, 1rem);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 500;
+  transition: 0.8s;
+  background-size: 280% auto;
+  background-image: linear-gradient(
+    325deg,
+    var(--btn-bg-2) 0%,
+    var(--btn-bg-1) 55%,
+    var(--btn-bg-2) 90%
+  );
+  border: none;
+  border-radius: var(--radii);
+  color: var(--btn-bg-color);
+  box-shadow: 0px 0px 20px rgba(71, 184, 255, 0.5),
+    0px 5px 5px -1px rgba(58, 125, 233, 0.25),
+    inset 4px 4px 8px rgba(175, 230, 255, 0.5),
+    inset -4px -4px 8px rgba(19, 95, 216, 0.35);
 }
 
 .MapForm .btn-donate:hover {
-    background-position: right top;
+  background-position: right top;
 }
 
 .MapForm .btn-donate:is(:focus, :focus-within, :active) {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--btn-bg-color), 0 0 0 6px var(--btn-bg-2);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--btn-bg-color), 0 0 0 6px var(--btn-bg-2);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .btn-donate {
-        transition: linear;
-    }
+  .btn-donate {
+    transition: linear;
+  }
 }
 
-
 .MapForm button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

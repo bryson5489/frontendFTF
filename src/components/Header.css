@@ -10,7 +10,6 @@
   border: none;
   background-color: #d8edda;
   font-size: 1.1em;
-
 }
 
 .Header button:hover {
@@ -21,6 +20,7 @@
 .Header ul {
   display: flex;
   list-style: none;
+  font-family: sans-serif;
 }
 
 .Header h1 {
@@ -31,13 +31,11 @@
   cursor: pointer;
   font-weight: bolder;
   font-size: 102%;
-
 }
 
 .Header li {
   font-size: 1.1em;
   padding: 20px;
-
 }
 
 .Header a {

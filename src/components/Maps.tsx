@@ -255,11 +255,13 @@ const Maps = () => {
           </GoogleMap>
         </LoadScript>
         <div className="farmArray">
-          {farmArray.map((farm: any) => (
-            <Link to={`/detailsPage/${farm.place_id}`}>
-              <FarmList farmsProp={farm} key={farm.place_id} />
-            </Link>
-          ))}
+          <ul className="FarmListContainer">
+            {farmArray.map((farm: any) => (
+              <Link to={`/detailsPage/${farm.place_id}`}>
+                <FarmList farmsProp={farm} key={farm.place_id} />
+              </Link>
+            ))}
+          </ul>
         </div>
       </div>
     </>
