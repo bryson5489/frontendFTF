@@ -1,6 +1,8 @@
 import { User } from "firebase/auth";
 import { ReactNode, useEffect, useState } from "react";
 import { auth } from "../firebaseConfig";
+import Profile from "../models/Profile";
+import { addProfile, getProfile } from "../services/profileService";
 import AuthContext from "./AuthContext";
 
 //TODO:
@@ -15,15 +17,27 @@ interface Props {
 
 const AuthContextProvider = ({ children }: Props) => {
   const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
+
   useEffect(() => {
-    return auth.onAuthStateChanged((newUser) => {
+    return auth.onAuthStateChanged(async (newUser) => {
       setUser(newUser);
+      if (newUser) {
+        const profile = await getProfile(newUser.uid);
+        if (profile) {
+          setProfile(profile);
+        }
+      } else {
+        setProfile(null);
+      }
     });
   }, []);
 
   console.log(user);
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, profile }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 export default AuthContextProvider;

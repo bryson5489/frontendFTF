@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
+import { signInWithGoogle, signOut } from "../firebaseConfig";
 import "./Header.css";
 
 const Header = () => {
+  const { user, profile } = useContext(AuthContext);
+
   return (
     <header className="Header">
       <Link to={"/"}>
@@ -16,14 +21,27 @@ const Header = () => {
         {/* <Link to="/main">
           <li>List View</li>
         </Link> */}
+        {user && !profile && (
+          <div>
+            <Link to="/login">
+              <li>Make Profile</li>
+            </Link>
+          </div>
+        )}
 
-        <Link to="/farms">
-          <li>My Farms</li>
-        </Link>
-
-        <Link to="/login">
-          <li>Login</li>
-        </Link>
+        {user && profile && (
+          <div>
+            {" "}
+            <Link to="/farms">
+              <li>My Farms</li>
+            </Link>
+          </div>
+        )}
+        {user ? (
+          <button onClick={signOut}>Sign out</button>
+        ) : (
+          <button onClick={signInWithGoogle}>Sign in with Google</button>
+        )}
       </ul>
     </header>
   );
