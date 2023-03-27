@@ -7,13 +7,11 @@ interface Prop {
 
 const FarmList = ({ farmsProp }: Prop) => {
   return (
-    <ul className="FarmList">
-      <li>
-        <p>Farm Name: {farmsProp.name}</p>
-        <p>Address: {farmsProp.formatted_address}</p>
-        <p>Rating: {farmsProp.rating}</p>
-      </li>
-    </ul>
+    <li className="FarmList">
+      <p>Farm Name: {farmsProp.name}</p>
+      <p>Address: {farmsProp.formatted_address}</p>
+      <p>Rating: {farmsProp.rating}</p>
+    </li>
   );
 };
 
