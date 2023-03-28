@@ -19,6 +19,7 @@
   margin: 0px;
   overflow: scroll;
   height: 678px;
+}
 
 
 @media only screen and (min-width: 800px) {
@@ -42,12 +43,14 @@
     flex-direction: column;
     border-radius: 5px;
   }
+
   .FarmListContainer {
     flex: space-between;
     margin: 40px;
 
     padding: 0;
   }
+
   .farmArray li {
     background-color: hsla(121, 11%, 89%, 0.8);
     border-radius: 10px;
