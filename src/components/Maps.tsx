@@ -16,7 +16,7 @@ import DetailsPage from "./DetailsPage";
 
 const containerStyle = {
   width: "100%",
-  height: "700px",
+  height: "678px",
 };
 
 // this is the center that we will being using for the searchterm!
