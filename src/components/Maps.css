@@ -8,12 +8,15 @@
   padding-bottom: 20px;
   border-bottom: 1px solid grey;
 }
+
 .farmArray {
   background-color: hsla(121, 11%, 89%, 0.4);
 }
+
 .mapContainer .FarmListContainer {
   list-style: none;
 }
+
 @media only screen and (min-width: 800px) {
   .mapContainer {
     display: flex;

@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import axios from "axios";
 import Farm from "../models/Farm";
 
@@ -9,6 +10,7 @@ export const postNewFarm = async (
 ): Promise<Farm> => {
   return (await axios.post(`${baseURL}/users/${place_id}/farms`, newFarm)).data;
 };
+
 export const deleteFarm = async (place_id: string): Promise<void> => {
   await axios.delete(`${baseURL}/users/:place_id/farms/${place_id}`);
 };
