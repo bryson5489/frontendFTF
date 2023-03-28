@@ -5,6 +5,9 @@
   justify-content: space-between;
   padding: 5px 30px;
 }
+.Header img {
+  max-width: 100px;
+}
 
 .Header button {
   border: none;
