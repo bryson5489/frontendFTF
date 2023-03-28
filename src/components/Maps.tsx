@@ -26,6 +26,7 @@ const Maps = () => {
   const key = process.env.REACT_APP_FARM_KEY || "";
   const [selectedCenter, setSelectedCenter] = useState<Location | null>(null);
   const [index, setIndex] = useState<null | number>(null);
+  // const [mongoFarms, setMongoFarms] = useState<MongoFarms>([]);
   const [farmArray, setFarmArray] = useState<Farm[] | any>([
     {
       geometry: {
@@ -199,6 +200,8 @@ const Maps = () => {
   useEffect(() => {
     (async () => {
       const farms = (await getFarmsByLocation(searchTerm)).results;
+      // need to get all the farms from mongo here as well
+      // const mongoFarms = (await getMongoFarms(searchTerm)).results
       setFarmArray(farms);
     })();
   }, [searchTerm]);
@@ -229,6 +232,13 @@ const Maps = () => {
                 onClick={(e) => test(farm, index)}
               />
             ))}
+            {/* {mongoFarms.map((farm: any, index: number) => (
+              <MarkerF
+                position={farm.geometry.location}
+                key={farm.place_id}
+                onClick={(e) => test(farm, index)}
+              />
+            ))} */}
             {index && selectedCenter && (
               <InfoWindowF
                 onCloseClick={() => {
@@ -252,6 +262,30 @@ const Maps = () => {
                 </div>
               </InfoWindowF>
             )}
+            {/* {index && selectedCenter && (
+              <InfoWindowF
+                onCloseClick={() => {
+                  setSelectedCenter(null);
+                }}
+                position={{
+                  lat: selectedCenter.lat,
+                  lng: selectedCenter.lng,
+                }}
+              >
+                <div>
+                  <p>
+                    <span>Name:</span> {mongoFarms[index].name}
+                  </p>
+                  <p>
+                    <span>Address:</span> {mongoFarms[index].formatted_address}
+                  </p>
+                  <p>
+                    <span>Rating:</span> {mongoFarms[index].rating}
+                  </p>
+               
+                </div>
+              </InfoWindowF>
+            )} */}
           </GoogleMap>
         </LoadScript>
         <div className="farmArray">
@@ -261,6 +295,11 @@ const Maps = () => {
                 <FarmList farmsProp={farm} key={farm.place_id} />
               </Link>
             ))}
+            {/* {mongoFarms.map((farm: any) => (
+              <Link to={`/detailsPage/${farm.place_id}`}>
+                <FarmList farmsProp={farm} key={farm.place_id} />
+              </Link>
+            ))} */}
           </ul>
         </div>
       </div>
