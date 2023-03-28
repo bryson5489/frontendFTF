@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import { signInWithGoogle, signOut } from "../firebaseConfig";
 import "./Header.css";
+import logo from "../assets/Field-to-Feast-Green.png";
 
 const Header = () => {
   const { user, profile } = useContext(AuthContext);
@@ -11,7 +12,7 @@ const Header = () => {
     <header className="Header">
       <Link to={"/"}>
         {" "}
-        <h1>Field To Feast</h1>
+        <img src={logo} alt="Field To Feast" />
       </Link>
 
       <ul>

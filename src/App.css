@@ -1,3 +1,4 @@
 .App {
-    background-image: url("../src/assets/wvbut.png");
+  background-image: url("../src/assets/wvbut.png");
+  height: 100vh;
 }
