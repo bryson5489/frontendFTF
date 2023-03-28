@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import Farm from "../models/Farm";
+import MongoFarm from "../models/MongoFarm";
 import { getFarmsByLocation } from "../services/googleService";
 import { postNewFarm, deleteFarm } from "../services/mongoService";
 import MyFarmsList from "./MyFarmList";
@@ -26,8 +27,8 @@ const MyFarms = () => {
       loadAllFarms();
     })();
   }, []);
-  const newFarmHandler = async (newFarm: Farm): Promise<void> => {
-    await postNewFarm(newFarm, "12345");
+  const newFarmHandler = async (newFarm: MongoFarm): Promise<void> => {
+    await postNewFarm(newFarm);
     loadAllFarms();
   };
   const deleteFarmHandler = (id: string) => {

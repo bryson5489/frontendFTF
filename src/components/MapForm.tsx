@@ -36,12 +36,15 @@ const MapForm = () => {
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          required
         />
         <label htmlFor="input-field" className="input-label">
           Enter city, state
         </label>
         <select name="filter" id="filter" onChange={handleFilterChange1}>
-          <option value="">Select a fruit or vegetable</option>
+          <option value="" selected disabled>
+            Select a fruit or vegetable
+          </option>
           <option value="">Any</option>
           <optgroup label="Vegetables">
             <option value="corn">Corn</option>
@@ -94,6 +97,9 @@ const MapForm = () => {
           id="preference"
           onChange={handleFilterChange2}
         >
+          <option value="preference" selected disabled>
+            Preference
+          </option>
           <option value="organic">Organic</option>
           <option value="non-gmo">Non-gmo</option>
         </select>

@@ -13,6 +13,8 @@ import { getFarmsByLocation } from "../services/googleService";
 import FarmList from "./FarmList";
 import Location from "../models/Location";
 import DetailsPage from "./DetailsPage";
+import MongoFarm from "../models/MongoFarm";
+import { getMongoFarms } from "../services/mongoService";
 
 const containerStyle = {
   width: "100%",
@@ -26,7 +28,7 @@ const Maps = () => {
   const key = process.env.REACT_APP_FARM_KEY || "";
   const [selectedCenter, setSelectedCenter] = useState<Location | null>(null);
   const [index, setIndex] = useState<null | number>(null);
-  // const [mongoFarms, setMongoFarms] = useState<MongoFarms>([]);
+  const [mongoFarms, setMongoFarms] = useState<MongoFarm[]>([]);
   const [farmArray, setFarmArray] = useState<Farm[] | any>([
     {
       geometry: {
@@ -201,7 +203,8 @@ const Maps = () => {
     (async () => {
       const farms = (await getFarmsByLocation(searchTerm)).results;
       // need to get all the farms from mongo here as well
-      // const mongoFarms = (await getMongoFarms(searchTerm)).results
+      const mongoFarms = await getMongoFarms(searchTerm);
+      setMongoFarms(mongoFarms);
       setFarmArray(farms);
     })();
   }, [searchTerm]);
@@ -235,7 +238,7 @@ const Maps = () => {
             {/* {mongoFarms.map((farm: any, index: number) => (
               <MarkerF
                 position={farm.geometry.location}
-                key={farm.place_id}
+                key={farm.farmer_id}
                 onClick={(e) => test(farm, index)}
               />
             ))} */}
@@ -293,6 +296,11 @@ const Maps = () => {
             {farmArray.map((farm: any) => (
               <Link to={`/detailsPage/${farm.place_id}`}>
                 <FarmList farmsProp={farm} key={farm.place_id} />
+              </Link>
+            ))}
+            {mongoFarms.map((item) => (
+              <Link to={`/detailsPage/${item.farmer_id}`}>
+                <FarmList farmsProp={item} key={item.farmer_id} />
               </Link>
             ))}
             {/* {mongoFarms.map((farm: any) => (
