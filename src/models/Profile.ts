@@ -1,6 +1,6 @@
 export default interface Profile {
   isFarmer: boolean;
-  profile_id: string;
+  google_id: string;
   _id?: string;
   fullName: string;
   email: string;

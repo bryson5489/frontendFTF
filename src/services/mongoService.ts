@@ -1,6 +1,4 @@
-import { async } from "@firebase/util";
 import axios from "axios";
-import Farm from "../models/Farm";
 import MongoFarm from "../models/MongoFarm";
 
 const baseURL: string = process.env.REACT_APP_API_URL || "";

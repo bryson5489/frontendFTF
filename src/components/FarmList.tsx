@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Farm from "../models/Farm";
 import MongoFarm from "../models/MongoFarm";
 import "./FarmList.css";

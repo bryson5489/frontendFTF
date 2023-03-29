@@ -2,7 +2,7 @@ import { User } from "firebase/auth";
 import { ReactNode, useEffect, useState } from "react";
 import { auth } from "../firebaseConfig";
 import Profile from "../models/Profile";
-import { addProfile, getProfile } from "../services/profileService";
+import { getProfile } from "../services/profileService";
 import AuthContext from "./AuthContext";
 
 //TODO:
