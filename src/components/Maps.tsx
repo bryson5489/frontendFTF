@@ -12,7 +12,6 @@ import Farm from "../models/Farm";
 import { getFarmsByLocation } from "../services/googleService";
 import FarmList from "./FarmList";
 import Location from "../models/Location";
-import DetailsPage from "./DetailsPage";
 import MongoFarm from "../models/MongoFarm";
 import { getMongoFarms } from "../services/mongoService";
 
@@ -24,7 +23,7 @@ const containerStyle = {
 // this is the center that we will being using for the searchterm!
 
 const Maps = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const key = process.env.REACT_APP_FARM_KEY || "";
   const [selectedCenter, setSelectedCenter] = useState<Location | null>(null);
   const [index, setIndex] = useState<null | number>(null);

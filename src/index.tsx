@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthContextProvider from "./context/AuthContextProvider";
+import FavoritesContextProvider from "./context/FavoritesContextProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <App />
+      <FavoritesContextProvider>
+        <App />
+      </FavoritesContextProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

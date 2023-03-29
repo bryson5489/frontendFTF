@@ -4,8 +4,8 @@ import Favorite from "../models/Favorite";
 interface FavoritesContextModel {
   favorites: Favorite[];
   addFavoriteHandler: (favorite: Favorite) => void;
-  deleteFavoriteHandler: (id: string) => void;
-  isFav: (id: string) => boolean;
+  deleteFavoriteHandler: (formattedAddress: string) => void;
+  isFav: (formattedAddress: string) => boolean;
 }
 const defaultValues: FavoritesContextModel = {
   favorites: [],
