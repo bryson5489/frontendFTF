@@ -4,8 +4,8 @@ import "./MapForm.css";
 
 const MapForm = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [food, setFood] = useState("");
-  const [preference, setPreference] = useState("");
+  const [food, setFood] = useState<string>("");
+  const [preference, setPreference] = useState<string>("");
   const navigate = useNavigate();
 
   const handleFilterChange1 = (e: any) => {
@@ -20,7 +20,9 @@ const MapForm = () => {
     // http://localhost:3000/?search-term=lentils
     navigate(
       `/map?${new URLSearchParams({
-        "search-term": `${searchTerm}+${food}+${preference}`,
+        "search-term": `${searchTerm}`,
+        food: `${food}`,
+        preference: `${preference}`,
       })}`
     );
 
@@ -100,6 +102,7 @@ const MapForm = () => {
           <option value="preference" selected disabled>
             Preference
           </option>
+          <option value="">Any</option>
           <option value="organic">Organic</option>
           <option value="non-gmo">Non-gmo</option>
         </select>

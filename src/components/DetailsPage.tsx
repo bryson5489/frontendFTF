@@ -78,11 +78,22 @@ const DetailsPage = () => {
               {review.text ? (
                 <>
                   <li>
-                    <img
-                      className="review-pic"
-                      src={review.profile_photo_url}
-                      alt=""
-                    />
+                    {review.profile_photo_url ? (
+                      <img
+                        className="review-pic"
+                        src={review.profile_photo_url}
+                        alt=""
+                      />
+                    ) : (
+                      <img
+                        className="review-pic"
+                        src={photos[randomNumber()]}
+                        alt={review?.author_name}
+                      ></img>
+                    )}
+
+                    {/* having a  problem making the profile pictures load*/}
+
                     <p>Author: {review.author_name}</p>
                     <p>Rating: {review.rating} /5</p>
                     <p>Posted: {review.relative_time_description}</p>
