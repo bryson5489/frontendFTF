@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import Farm from "../models/Farm";
+import MongoFarm from "../models/MongoFarm";
 import "./FarmList.css";
 interface Prop {
-  farmsProp: Farm;
+  farmsProp: Farm | MongoFarm;
 }
 
 const FarmList = ({ farmsProp }: Prop) => {
