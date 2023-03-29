@@ -17,6 +17,7 @@ interface Review {
 }
 
 export default interface Farm {
+  _id?: string;
   photos?: Photo[];
   place_id?: string;
   formatted_address: string;

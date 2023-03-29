@@ -19,9 +19,7 @@ const Header = () => {
         <Link to="/map">
           <li>Home</li>
         </Link>
-        {/* <Link to="/main">
-          <li>List View</li>
-        </Link> */}
+
         {user && !profile && (
           <Link to="/login">
             <li>Make Profile</li>

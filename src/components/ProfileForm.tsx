@@ -1,7 +1,6 @@
 import { FormEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
-import Profile from "../models/Profile";
 import { getGeolocation } from "../services/googleService";
 import { addProfile } from "../services/profileService";
 import "./ProfileForm.css";
@@ -24,7 +23,7 @@ const ProfileForm = () => {
     let latLong = await getGeolocation(address + city + state);
     console.log(latLong);
     await addProfile({
-      profile_id: user?.uid!,
+      google_id: user?.uid!,
       isFarmer,
       fullName,
       email,

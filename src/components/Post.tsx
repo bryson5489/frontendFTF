@@ -1,6 +1,6 @@
 import "./Post.css";
 import { FormEvent, useContext, useState } from "react";
-import Farm from "../models/Farm";
+// import Farm from "../models/Farm";
 import MongoFarm from "../models/MongoFarm";
 import AuthContext from "../context/AuthContext";
 
@@ -10,8 +10,12 @@ interface Prop {
 }
 
 const Post = ({ newFarmProp, newFarmState }: Prop) => {
+
   const [website, setWebsite] = useState("");
   const [newFarm, setNewFarm] = useState(false);
+
+  // const [newFarm, setNewFarm] = useState(false);
+
   const [name, setName] = useState("");
   const [formatted_address, setFormattedAddress] = useState("");
   const [rating, setRating] = useState("");
@@ -22,7 +26,7 @@ const Post = ({ newFarmProp, newFarmState }: Prop) => {
       name,
       formatted_address,
       rating: parseInt(rating),
-      farmer_id: profile!.profile_id,
+      farmer_id: profile!.google_id,
     });
     newFarmState(false);
     setName("");
