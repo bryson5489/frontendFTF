@@ -18,7 +18,7 @@ import { getMongoFarms } from "../services/mongoService";
 
 const containerStyle = {
   width: "100%",
-  height: "678px",
+  height: "643px",
 };
 
 // this is the center that we will being using for the searchterm!
