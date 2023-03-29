@@ -10,7 +10,12 @@ interface Prop {
 }
 
 const Post = ({ newFarmProp, newFarmState }: Prop) => {
+
+  const [website, setWebsite] = useState("");
+  const [newFarm, setNewFarm] = useState(false);
+
   // const [newFarm, setNewFarm] = useState(false);
+
   const [name, setName] = useState("");
   const [formatted_address, setFormattedAddress] = useState("");
   const [rating, setRating] = useState("");
@@ -63,6 +68,16 @@ const Post = ({ newFarmProp, newFarmState }: Prop) => {
         value={rating}
         onChange={(e) => {
           setRating(e.target.value);
+        }}
+      />
+      <label htmlFor="website">website</label>
+      <input
+        type="text"
+        name="website"
+        id="website"
+        value={website}
+        onChange={(e) => {
+          setWebsite(e.target.value);
         }}
       />
       <button className="CreateFarm">

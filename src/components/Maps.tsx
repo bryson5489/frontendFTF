@@ -193,6 +193,9 @@ const Maps = () => {
 
   const [searchParams] = useSearchParams();
   let searchTerm: string = searchParams.get("search-term") || "";
+  let food: string = searchParams.get("food") || "";
+  let preference: string = searchParams.get("preference") || "";
+  const conditionalString: string = searchTerm + food + preference;
   const test = (farm: any, index: number) => {
     setSelectedCenter(farm.geometry.location);
     setIndex(index);
@@ -200,9 +203,10 @@ const Maps = () => {
 
   useEffect(() => {
     (async () => {
-      const farms = (await getFarmsByLocation(searchTerm)).results;
+      const farms = (await getFarmsByLocation(conditionalString)).results;
       // need to get all the farms from mongo here as well
       const mongoFarms = await getMongoFarms(searchTerm);
+      console.log(mongoFarms);
       setMongoFarms(mongoFarms);
       setFarmArray(farms);
     })();
@@ -264,30 +268,6 @@ const Maps = () => {
                 </div>
               </InfoWindowF>
             )}
-            {/* {index && selectedCenter && (
-              <InfoWindowF
-                onCloseClick={() => {
-                  setSelectedCenter(null);
-                }}
-                position={{
-                  lat: selectedCenter.lat,
-                  lng: selectedCenter.lng,
-                }}
-              >
-                <div>
-                  <p>
-                    <span>Name:</span> {mongoFarms[index].name}
-                  </p>
-                  <p>
-                    <span>Address:</span> {mongoFarms[index].formatted_address}
-                  </p>
-                  <p>
-                    <span>Rating:</span> {mongoFarms[index].rating}
-                  </p>
-               
-                </div>
-              </InfoWindowF>
-            )} */}
           </GoogleMap>
         </LoadScript>
         <div className="farmArray">
@@ -302,11 +282,6 @@ const Maps = () => {
                 <FarmList farmsProp={item} key={item.farmer_id} />
               </Link>
             ))}
-            {/* {mongoFarms.map((farm: any) => (
-              <Link to={`/detailsPage/${farm.place_id}`}>
-                <FarmList farmsProp={farm} key={farm.place_id} />
-              </Link>
-            ))} */}
           </ul>
         </div>
       </div>
