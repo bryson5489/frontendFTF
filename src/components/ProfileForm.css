@@ -1,29 +1,37 @@
 .ProfileForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 105px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 105px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
 }
 
 .ProfileForm label {
-    font-size: larger;
+  font-size: larger;
+  color: white;
 }
 
 .ProfileForm input {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 10px 125px 10px 125px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 125px 10px 125px;
 }
 
 .ProfileForm textarea {
-    padding: 50px 100px 50px 100px;
+  padding: 50px 100px 50px 100px;
 }
 
 .ProfileForm button {
-    background-color: #d8edda;
-    font-size: larger;
-    padding: 20px 150px 20px 150px;
-    border-radius: 20px;
-    margin-top: 30px;
+  background-color: #d8edda;
+  font-size: larger;
+  padding: 20px 150px 20px 150px;
+  border-radius: 20px;
+  margin-top: 30px;
 }

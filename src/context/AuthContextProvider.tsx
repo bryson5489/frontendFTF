@@ -2,7 +2,7 @@ import { User } from "firebase/auth";
 import { ReactNode, useEffect, useState } from "react";
 import { auth } from "../firebaseConfig";
 import Profile from "../models/Profile";
-import { getProfile } from "../services/profileService";
+import { addProfile, getProfile } from "../services/profileService";
 import AuthContext from "./AuthContext";
 
 //TODO:
@@ -19,11 +19,18 @@ const AuthContextProvider = ({ children }: Props) => {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
 
+  const addProfileHandler = async (newProfile: Profile): Promise<void> => {
+    await addProfile(newProfile);
+    const profile = await getProfile(newProfile.google_id);
+    setProfile(profile);
+  };
+
   useEffect(() => {
     return auth.onAuthStateChanged(async (newUser) => {
       setUser(newUser);
       if (newUser) {
         const profile = await getProfile(newUser.uid);
+        console.log(profile);
         if (profile) {
           setProfile(profile);
         }
@@ -35,7 +42,7 @@ const AuthContextProvider = ({ children }: Props) => {
 
   console.log(user);
   return (
-    <AuthContext.Provider value={{ user, profile }}>
+    <AuthContext.Provider value={{ user, profile, addProfileHandler }}>
       {children}
     </AuthContext.Provider>
   );
