@@ -206,7 +206,7 @@ const Maps = () => {
       const farms = (await getFarmsByLocation(conditionalString)).results;
       // need to get all the farms from mongo here as well
       const mongoFarms = await getMongoFarms(searchTerm);
-      console.log(mongoFarms);
+
       setMongoFarms(mongoFarms);
       setFarmArray(farms);
     })();
@@ -272,14 +272,20 @@ const Maps = () => {
         </LoadScript>
         <div className="farmArray">
           <ul className="FarmListContainer">
-            {farmArray.map((farm: any) => (
-              <Link to={`/detailsPage/${farm.place_id}`}>
-                <FarmList farmsProp={farm} key={farm.place_id} />
+            {farmArray.map((farm: any, index: number) => (
+              <Link
+                key={`${farm.formatted_address} + ${index}`}
+                to={`/detailsPage/${farm.place_id}`}
+              >
+                <FarmList farmsProp={farm} />
               </Link>
             ))}
-            {mongoFarms.map((item) => (
-              <Link to={`/detailsPage/${item.farmer_id}`}>
-                <FarmList farmsProp={item} key={item.farmer_id} />
+            {mongoFarms.map((item, index) => (
+              <Link
+                key={`${item.formatted_address} + ${index}`}
+                to={`/detailsPage/${item.farmer_id}`}
+              >
+                <FarmList farmsProp={item} />
               </Link>
             ))}
           </ul>

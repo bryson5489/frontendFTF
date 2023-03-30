@@ -2,31 +2,30 @@ import { FormEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import { getGeolocation } from "../services/googleService";
-import { addProfile } from "../services/profileService";
+
 import "./ProfileForm.css";
 
 const ProfileForm = () => {
   const [isFarmer, setIsFarmer] = useState(false);
   const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-  const { user } = useContext(AuthContext);
+  const { user, addProfileHandler } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const submitHandler = async (e: FormEvent): Promise<void> => {
     e.preventDefault();
     let latLong = await getGeolocation(address + city + state);
     console.log(latLong);
-    await addProfile({
+    await addProfileHandler({
       google_id: user?.uid!,
       isFarmer,
       fullName,
-      email,
+      email: user?.email!,
       aboutMe,
       phoneNumber,
       address: address + city + state,
@@ -48,16 +47,7 @@ const ProfileForm = () => {
           setFullName(e.target.value);
         }}
       />
-      <label htmlFor="email">Email</label>
-      <input
-        type="text"
-        name="email"
-        id="email"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
+
       <label htmlFor="phoneNumber">Phone Number</label>
       <input
         type="text"

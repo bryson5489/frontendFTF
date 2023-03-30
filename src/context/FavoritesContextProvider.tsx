@@ -28,14 +28,17 @@ const FavoritesContextProvider = ({ children }: Props) => {
 
   const addFavoriteHandler = async (newFavorite: Favorite): Promise<void> => {
     if (profile) {
-      await addFavorite(newFavorite, profile._id!);
+      newFavorite.profile_id = profile._id;
+      await addFavorite(newFavorite);
       loadFavorites();
     }
   };
 
-  const deleteFavoriteHandler = async (id: string): Promise<void> => {
+  const deleteFavoriteHandler = async (
+    formattedAddress: string
+  ): Promise<void> => {
     if (profile) {
-      await deleteFavorite(profile._id!, id);
+      await deleteFavorite(profile._id!, formattedAddress);
       loadFavorites();
     }
   };

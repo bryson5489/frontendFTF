@@ -1,33 +1,34 @@
 import axios from "axios";
 import Favorite from "../models/Favorite";
 
-const baseURL: string = "http://localhost:3000";
+const baseURL: string = process.env.REACT_APP_API_URL || "";
 
-export const getFavorites = async (userId: string): Promise<Favorite[]> => {
+export const getFavorites = async (profile_id: string): Promise<Favorite[]> => {
   return (
-    await axios.get(`${baseURL}/users/${encodeURIComponent(userId)}/favorites`)
+    await axios.get(
+      `${baseURL}/users/${encodeURIComponent(profile_id)}/favorites`
+    )
   ).data;
 };
 
-export const addFavorite = async (
-  newFavorite: Favorite,
-  userId: string
-): Promise<Favorite> => {
+export const addFavorite = async (newFavorite: Favorite): Promise<Favorite> => {
   return (
     await axios.post(
-      `${baseURL}/users/${encodeURIComponent(userId)}/favorites`,
+      `${baseURL}/users/${encodeURIComponent(
+        newFavorite.profile_id!
+      )}/favorites`,
       newFavorite
     )
   ).data;
 };
 
 export const deleteFavorite = async (
-  userId: string,
-  id: string
+  profile_id: string,
+  place_id: string
 ): Promise<void> => {
   await axios.delete(
     `${baseURL}/users/${encodeURIComponent(
-      userId
-    )}/favorites/${encodeURIComponent(id)}`
+      profile_id
+    )}/favorites/${encodeURIComponent(place_id)}`
   );
 };
