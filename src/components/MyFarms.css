@@ -1,28 +1,25 @@
 .MyFarms {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
 .MyFarms .newFarmButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 110px 15px 110px;
-    margin-top: 20px;
-    border-radius: 20px;
-    height: 50px;
-    font-size: larger;
-    box-shadow: hsl(210deg 87% 36%) 0px 7px 0px 0px;
-    background-color: hsl(210deg 100% 44%);
-    padding: 0 20px;
-    font-size: 18px;
-    text-transform: uppercase;
-    border: 0;
-    overflow: hidden;
-    transition: 31ms cubic-bezier(.5, .7, .4, 1);
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 110px 15px 110px;
+  margin-top: 20px;
+  border-radius: 20px;
+  height: 50px;
+  font-size: larger;
+  box-shadow: hsl(210deg 87% 36%) 0px 7px 0px 0px;
+  background-color: hsl(210deg 100% 44%);
+  padding: 0 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+  border: 0;
+  overflow: hidden;
+  transition: 31ms cubic-bezier(0.5, 0.7, 0.4, 1);
 }

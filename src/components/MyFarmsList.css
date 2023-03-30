@@ -57,4 +57,25 @@
   align-items: center;
   border-radius: 10px;
   margin: 30px;
+  background: linear-gradient(
+    -45deg,
+    hsla(120, 25%, 90%, 0.4),
+    hsla(121, 11%, 89%, 0.3),
+    hsla(56, 93%, 71%, 0.2),
+    hsla(121, 11%, 89%, 0.3)
+  );
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
